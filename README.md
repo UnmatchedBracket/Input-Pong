@@ -4,6 +4,8 @@ An input system for [r/badUIbattles](https://www.reddit.com/r/badUIbattles/)
 
 Reddit post: I'll put it here once I post it
 
+Inspiration: [Ill-Chemistry2423's Comment](https://www.reddit.com/r/badUIbattles/comments/tyr7qx/comment/i3v07k8)
+
 ## Usage
 Pygame is required: `pip install pygame`
 
