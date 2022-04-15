@@ -74,7 +74,7 @@ CLEAR = "⎚"
 typed = ""
 
 alphabet = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()[]{}-=_+`~'\":;,.<>/? "
-alphabet += BACKSPACE + SHIFT*3 + ENTER*5 + CLEAR*10
+alphabet += BACKSPACE + SHIFT*3 + CLEAR*10
 alphabet = list(alphabet)
 random.shuffle(alphabet)
 alphabet = "".join(alphabet)
@@ -170,9 +170,25 @@ while True:
             if hitpoint <= -125:
                 current -= 5
                 anim_offset -= 5
-            elif hitpoint <= 0:
+            elif hitpoint <= -25:
                 current -= 1
                 anim_offset -= 1
+            elif hitpoint < 25:
+                typed += alphabet[current]
+                if typed[-1] == ENTER:
+                    typed = typed[:-1]
+                    break
+                elif typed[-1] == CLEAR:
+                    typed = ""
+                    current = 0
+                    anim_offset = 1000
+                elif typed[-1] == BACKSPACE:
+                    typed = typed[:-2]
+                elif typed[-1] == SHIFT:
+                    typed = typed[:-1]
+                    alphabet = alphabet.upper()
+                else:
+                    alphabet = alphabet.lower()
             elif hitpoint < 125:
                 current += 1
                 anim_offset += 1
@@ -185,21 +201,7 @@ while True:
             ball_vel = [abs(ball_vel[0]), -abs(ball_vel[1])]
             ball_pos = [paddle_x, paddle_y-50]
             sound_score.play()
-            typed += alphabet[current]
-            if typed[-1] == ENTER:
-                typed = typed[:-1]
-                break
-            elif typed[-1] == CLEAR:
-                typed = ""
-                current = 0
-                anim_offset = 1000
-            elif typed[-1] == BACKSPACE:
-                typed = typed[:-2]
-            elif typed[-1] == SHIFT:
-                typed = typed[:-1]
-                alphabet = alphabet.upper()
-            else:
-                alphabet = alphabet.lower()
+            break
 
     if int(paddle_x) != paddle.position[0]:
         paddle.position = (paddle_x+X, paddle_y)
