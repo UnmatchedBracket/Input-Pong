@@ -3,6 +3,7 @@ import sys
 from pygame._sdl2.video import Window, Renderer, Texture
 import time
 import math
+import random
 
 pygame.init()
 
