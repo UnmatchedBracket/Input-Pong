@@ -64,13 +64,20 @@ ball_pos = [0, 40]
 
 ball_vel = [10, -10]
 
-SPECIAL = "⌫↤⇬↵⏎⇧⟵⌦"
+SPECIAL = "⌫↤⇬↵⏎⇧⟵⌦⎚"
 BACKSPACE = "⌫"
 SHIFT = "⇬"
 ENTER = "⏎"
+CLEAR = "⎚"
 
 typed = ""
-alphabet = "abcdefghijklmnopqrstuvwxyz/ " + BACKSPACE + SHIFT + ENTER
+
+alphabet = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()[]{}-=_+`~'\":;,.<>/? "
+alphabet += BACKSPACE + SHIFT*3 + ENTER*5 + CLEAR*10
+alphabet = list(alphabet)
+random.shuffle(alphabet)
+alphabet = "".join(alphabet)
+
 current = 0
 anim_offset = 0
 
@@ -88,7 +95,7 @@ def render_ui(nocursor=False):
     partial_offset = (anim_offset % 1) * 100
     anim_offset *= 0.82
     while x > -50:
-        color = 0 + abs(i*20)
+        color = min(abs(i*20), 200)
         char = alphabet[(current_ofsetted+i)%len(alphabet)]
         f = (BAKFONT if char in SPECIAL else FONT)
         centered(ui_surf, f.render(char, True, (color, color, color)), (x+partial_offset, 0))
@@ -181,6 +188,10 @@ while True:
             if typed[-1] == ENTER:
                 typed = typed[:-1]
                 break
+            elif typed[-1] == CLEAR:
+                typed = ""
+                current = 0
+                anim_offset = 1000
             elif typed[-1] == BACKSPACE:
                 typed = typed[:-2]
             elif typed[-1] == SHIFT:

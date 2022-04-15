@@ -17,6 +17,7 @@ Special characters:
  - ⌫: Delete the previous character.
  - ⇬: The next letter typed will be uppercase.
  - ⏎: Finalize your input.
+ - ⎚: Clears the input.
 
 If you see the symbols as boxes, install [Symbola Font](https://zhm.github.io/symbola/)
 
