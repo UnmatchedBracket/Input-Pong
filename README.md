@@ -11,7 +11,7 @@ Pygame is required: `pip install pygame`
 
 `python main.py`
 
-Use arrows to move paddle. If it hits an inner region, the selection will move one space in the indicate direction, and five for outer regions. Miss to type the selected letter.
+Use arrows to move paddle. If it hits an inner region, the selection will move one space in the indicate direction, and five for outer regions. Hit the center to type the selected letter, miss to submit/finalize.
 
 Special characters:
  - ⌫: Delete the previous character.
