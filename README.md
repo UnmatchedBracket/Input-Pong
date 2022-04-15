@@ -2,7 +2,7 @@
 
 An input system for [r/badUIbattles](https://www.reddit.com/r/badUIbattles/)
 
-Reddit post: I'll put it here once I post it
+[Reddit post here](https://www.reddit.com/r/badUIbattles/comments/u3zflq/window_input_pong_each_element_is_a_separate/)
 
 Inspiration: [u/Ill-Chemistry2423's comment](https://www.reddit.com/r/badUIbattles/comments/tyr7qx/comment/i3v07k8) on [u/letternumsymboldash's Windows Pong post](https://www.reddit.com/r/badUIbattles/comments/tyr7qx/windows_pong/)
 
